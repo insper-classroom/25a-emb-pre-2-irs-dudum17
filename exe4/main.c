@@ -14,8 +14,9 @@ void btn_callback(uint gpio, uint32_t events) {
   if (events == 0x4) { // fall edge
     if (gpio == btn1)
       red_flag = 1;
-  else if (gpio == btn2)
-      green_flag = 1;
+  }else if(events == 0x8)
+     if (gpio == btn2){
+          green_flag = 1;
   }
 }
 
@@ -41,7 +42,7 @@ int main() {
                                      &btn_callback);
 
   // callback led g (nao usar _with_callback)
-  gpio_set_irq_enabled(btn2, GPIO_IRQ_EDGE_FALL, true);
+  gpio_set_irq_enabled(btn2, GPIO_IRQ_EDGE_RISE, true);
 
 
   while (true) {
