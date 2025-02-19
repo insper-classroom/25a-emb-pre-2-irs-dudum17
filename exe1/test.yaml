@@ -3,13 +3,13 @@ author: Rafael Corsi
 version: 1
 
 steps:
-  - delay: 150ms
+  - delay: 200ms
   - set-control:
       part-id: btnr
       control: pressed
       value: 1
   - wait-serial: "fall"
-  - delay: 300ms
+  - delay: 400ms
 
 
   - set-control:
@@ -17,4 +17,4 @@ steps:
       control: pressed
       value: 0
   - wait-serial: "rise"
-  - delay: 300ms
+  - delay: 100ms
